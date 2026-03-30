@@ -1,0 +1,148 @@
+.rs-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 48px;
+    .open-all-btn {
+        font-size: 12px;
+        font-weight: 500;
+        background: var(--primaryColor);
+        color: var(--primaryFgColor);
+        padding: 8px 16px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        margin-left: auto;
+        display: block;
+        margin-bottom: 16px;
+        span {
+            display: block;
+        }
+        &:not(.btn-open) {
+            span {
+                &:last-child {
+                    display: none;
+                }
+            }
+        }
+        &.btn-open {
+            span {
+                &:first-child {
+                    display: none;
+                }
+                &:last-child {
+                    display: block;
+                }
+            }
+        }
+        &:hover {
+            background: var(--secondaryColor);
+            color: var(--secondaryFgColor);
+        }
+    }
+    .aea-item {
+        background: #fff;
+        border: 1px solid var(--borderColor);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color var(--transition), box-shadow var(--transition);
+        .aea-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            .aea-icon-wrap {
+                flex-shrink: 0;
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                background: rgba(var(--primaryColorRGB), 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background var(--transition);
+                font-size: 15px;
+                color: var(--primaryColor);
+            }
+            .aea-title-group {
+                flex: 1;
+                min-width: 0;
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                .aea-title {
+                    color: var(--titleColor);
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                .aea-badge {
+                    display: inline-block;
+                    font-size: 10px;
+                    font-weight: 500;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    padding: 3px 8px;
+                    border-radius: 4px;
+                    margin-left: 8px;
+                    vertical-align: middle;
+                    background: rgba(var(--primaryColorRGB), 0.1);
+                    color: var(--primaryColor);
+                }
+                .aea-subtitle {
+                    font-size: 12px;
+                    margin-top: 2px;
+                    font-weight: 300;
+                    color: var(--bodyColor);
+                }
+            }
+            .aea-chevron {
+                flex-shrink: 0;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--titleColor);
+                transition: transform var(--transition), color var(--transition);
+            }
+        }
+        .aea-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows var(--transition);
+            .aea-body-inner {
+                overflow: hidden;
+            }
+            .aea-content {
+                border-top: 1px solid var(--borderColor);
+                padding: 20px 22px;
+                font-size: 14px;
+            }
+        }
+        &:hover {
+            border-color: rgba(var(--primaryColorRGB), 0.2);
+        }
+        &.open {
+            border-color: rgba(var(--primaryColorRGB), 0.2);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            .aea-trigger {
+                .aea-icon-wrap {
+                    background: var(--primaryColor);
+                    color: var(--primaryFgColor);
+                }
+                .aea-chevron {
+                    transform: rotate(180deg);
+                    color: var(--primaryColor);
+                }
+            }
+            .aea-body {
+                grid-template-rows: 1fr;
+            }
+        }
+    }
+}
