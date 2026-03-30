@@ -11,6 +11,9 @@ use Elementor\Repeater;
 use RSAddons\Abstracts\Widget_Base;
 
 
+// NOTE:: Need to add design control for some points
+
+
 defined( 'ABSPATH' ) || die();
 
 class Accordion extends Widget_Base {
